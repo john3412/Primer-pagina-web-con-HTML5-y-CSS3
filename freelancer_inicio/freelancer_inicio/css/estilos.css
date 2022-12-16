@@ -1,0 +1,278 @@
+:root{ /*Pseudoselector*/
+    --blanco: #ffffff;   /* Variables CSS*/
+    --oscuro:#212121;    /* Variables CSS*/
+    --primario: #ffc107; /* Variables CSS*/
+    --secundario: #0097a7;
+    --gris: #757575;
+    --grisClaro: #dfe9f3;
+} /* Custom Properties */
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /* Hack para box model */
+    scroll-snap-type: y mandatory; /*Crea un efecto de scroll de arriba hacia abajo*/
+}
+/**scroll snap**/
+.servicios, .navegacion-principal, .formulario{
+    scroll-snap-align: center; /*alinea el scroll al centro del section servicios*/
+    scroll-snap-stop: always; /*Detiene el scroll en el section servicios*/
+}
+
+*, *:before, *:after { /*Selector univarsal (*) */
+    box-sizing: inherit;
+}
+
+/* 1 rem = 10 px px=pixel */
+body{
+    font-size: 16px;/*tamaño de texto definido de 16 pixeles*/ 
+    font-family: 'Krub', sans-serif; /*Colocamos la fuente que importamos de 
+    Google fonts*/ 
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /*Utilizamos un color degradado para el fondo de nuestra pagina*/
+}
+.sombra{
+    /*-webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54); Prefijo para Chrome*/
+    /*-moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54); Prefijo para mozilla firefox*/
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54);/*Se utiliza este prefijo box-shadow ya que tiene un soporte del 95%*/
+    background-color: var(--blanco);
+    padding: 2rem;/*Separacion de elementos de arriba hacia abajo de 20px*/ 
+    border-radius: 1rem; /*Redondeamos las esquinas de nuesto recuadro con un tamaño de 1px*/
+}
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1, h2, h3{
+    text-align: center;
+}
+
+.titulo span{   /* Solo afecta a los span que esten dentro de una
+    la clase titulo*/
+    font-size: 2rem;
+}
+
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;/*Aplicamos 10px arriba 30px a la derecha 10px abajo y 30px a la izquierda y como los valores se repiten no es necesario definir las 4 posiciones*/
+    margin-top: 1rem;/*Agregamos 10px de separacion*/
+    font-size: 2rem;/*Aplicamos un tamaño de 20px al texto*/
+    text-decoration: none;/*Quitamos el subrayado del enlace*/
+    text-transform: uppercase;/*Ponemos el texto en mayusculas*/
+    font-weight: bold;/*Colocamos el texto en negritas*/
+    border-radius: 0.5rem;/*Borde de 5px, lo usamos para redondear las esquinas del botón*/
+    width: 90%;/*Ancho de 90% del boton*/
+    text-align: center;/*Alineamos el texto de boton al centro*/
+    border: none; /*Eliminamos el borde que viene por default en el boton del formulario*/
+}
+
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }
+}
+
+.boton:hover{
+    cursor: pointer; /*Todos los botones de nuestra pagina cambiaran el cursor a una manita al colocarlo encima de ellos*/
+}
+/*Utilidad*/
+.nav-bg{ /*Modulo*/
+    background-color: var(--secundario);
+}
+
+.w-sm-100{
+    margin-top: 4rem;
+    width: 100%; 
+}
+
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto; /*Ajusta el ancho de manera automatica*/
+    }
+}
+
+.alinear-derecha{
+    display: flex; /*Coloca el contenido de izquierda a derecha*/
+}
+
+.flex{
+    justify-content: flex-end; /*Coloca el contenido de la clase padre .alinear-derecha hasta el final del form*/
+}
+
+.navegacion-principal{ /*Elemento padre*/
+    display: flex;/*Coloca el contenido de izquierda a derecha*/
+    flex-direction: column;  /*el contenido va de arrriba hacia abajo */
+    /*flex-direction: row;  el contenido va de izquierda a derecha */
+}
+
+/*@media (min-width: 480px) { Tamaño estandar para un telefono celular
+    
+}*/
+
+@media (min-width: 768px) { /*tamaño estadard para una tablet*/
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between; /*alinea elementos horizontalmente*/
+    }
+}
+
+.navegacion-principal a{/*Utilidades*/
+    display: block;/*Toma todo el espacio de pantalla*/
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+/*@media (min-width: 1140px) { Tamaño estandard para una laptop o PC
+    
+}*/
+
+/*@media (min-width: 1140px) { Tamaño estandard para una pantalla
+    
+}*/
+
+.navegacion-principal a:hover{ /*pseudoclase. Coloca un color amarrillo al colocar el cursor en alguna seccion de la barra de navegación*/
+    background-color: var(--primario);
+    color: var(--oscuro);
+}   
+
+.hero{/*Clase padre*/
+    background-image: url(../img/hero.jpg); /*Colocamos la imagen de fondo en el section von la clase hero*/
+    background-repeat: no-repeat;/*El navegador por default repite la imagen para llenar el espacio faltante y con este código CCs evitamos esta accion*/
+    background-size: cover;/*La imagen se adapata a l aresolución de la pantalla*/
+    height: 450px;/*Altura de 450px*/
+    /*padding: 20px;/*padding de 20px*/
+    position: relative;
+    margin-bottom: 2rem; /*Separa el elemento hero del main que esta declarado con la clase .sombra*/
+}
+
+.hero-contenido{/*Clase hijo*/
+    position: absolute;
+    background-color: rgba(0, 0, 0. 0.7); /*Sintaxis anterior*/
+    background-color: rgb(0 0 0 / 70%);
+    height: 100%;
+    width: 100%;
+
+    display: flex;/*Coloca el contenido de izquierda a derecha*/
+    flex-direction: column;/*Coloca el contenido de ariba hacia abajo*/
+    align-items: center;/*Centra el contenido de la clase hero-contenido*/
+    justify-content: center;/*Utilizamos esta linea para alinear de manera vertical el contenido*/
+}
+
+.hero-contenido h2, .hero-contenido p{
+    color: var(--blanco);
+}
+
+.ubicacion{
+    display: flex;/*Alinea horizontalmente de izquierda a derecha*/
+    align-items: flex-end;/*Alinea verticalmente hacia abajo*/
+}
+
+/*Servicios*/
+@media (min-width: 768px) {/*Volvemos responsive el main que contirnr la clase .servicios*/
+    .servicios{
+        display: grid;/*Definimos la ubicación y el tamaño de los elementos de nuestro sitio web, en CSS grid el contenido se agrupa en un área definida*/
+        grid-template-columns: repeat(3, 1fr); /*Definimos tres columnas que representa la tercera parte del tamaño definido del main*/
+        column-gap: 1rem; /*Creamos un espacio de 10px entre columnas*/
+    }
+}
+
+.servicio{
+    display: flex; /*alineamos de izquierda a derecha*/
+    flex-direction: column; /*alineamos de arriba hacia abajo*/
+    align-items: center; /*Alineamos los elementos al centro del flexbox*/
+}
+
+.servicio h3{
+    color: var(--secundario); /*Color de letra azul*/
+    font-weight: normal; /*El texto dentro de la etiqueta html hr le quitamos las negritas*/
+}
+
+.servicio p{
+    line-height: 2; /*Le brindamos un espacio entre líneas a nuestros parrafos que se encuentran dentro de la clase .servicio*/
+    text-align: center; /*Centramos nuestro texto*/
+}
+
+.servicio .iconos{
+    height: 15rem; /*Altura de 15px*/
+    width: 15rem; /*Ancho de 15px*/
+    background-color: var(--primario); /*Color de fondo amarillo*/
+    border-radius: 50%; /*Como se tiene un cuadrado de 15px de ancho y 15 de alto al seleccionar un 50% del contenido se convierte en circulo*/
+    display: flex; /*Colocamos un elemento frente de otro*/
+    justify-content: space-evenly; /*Alineamos nuestro contenido con separaciones*/
+    align-items: center; /*Alineamos verticalmente los elementos*/
+}
+/*Contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%); /*Utiliza el valor mas pequeño*/
+    margin: 0 auto; /*Centra horizontalmente y se utiliza si la clase padre no tiene un display flex declarado o no existe una clase padre*/
+    padding: 2rem; /*Expandimos 20px arriba*/
+    border-radius: 1rem; /*Redondeamos las esquinas con tamaño de 10px*/
+}
+
+.formulario fieldset{
+    border: none; /*Eliminamos el borde que tiene el formulario por default*/
+}
+
+.formulario legend{
+    text-align: center; /*Centramos el texto*/
+    font-size: 1.8rem; /*El tamaño de texto sera de 18px*/
+    text-transform: uppercase; /*Convertimos a mayusculas el texto incluido en la etiqueta legend*/
+    font-weight: bold; /*Ponemos en negritas el texto*/
+    margin-bottom: 2rem; /*Colocamos una separción con el elmento de abajo de 20px*/
+    color: var(--primario); /*Color de letra amarillo*/
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos{
+    display: grid; /*Utilizamos el display flex para orednar nuestro contenido como queramos*/
+    grid-template-columns: 1fr 1fr; /*Dividimos en 2 columnas del 50% cada una*/
+    grid-template-rows: auto auto 20rem; /*El tamaño de la primera y segunda fila sera automatica y la tercera de 200px*/
+    column-gap: 1rem; /*Separacion de las columnas de 10px*/
+}
+}
+
+.campo:nth-child(3), .campo:nth-child(4){ /*Pseudoclase que nos permite seleccionar al tercer y cuarto hijo de la clase .campo*/
+    grid-column: 1 / 3; /*Extienda el input del tercer y cuarto hijo hasta la tercera columna*/
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco); /*Color de letra blanco*/
+    font-weight: bold; /*Ponemos en negritas el texto*/
+    margin-bottom: 0.5rem; /*Colocamos una separción con el elmento de abajo de 5px*/
+    display: block; /*Los labels ocupan todo el espacio disponible*/
+}
+
+.input-text{
+    width: 100%; /*Le indicamos que ocupe tode el espacio disponible*/
+    border: none; /*Le quitamos el borde que viene por defecto*/
+    padding: 1.5rem; /*Cada input tiene una altura o separacion de 15px*/
+    border-radius: 0.5rem; /*Redondeamos las esquinas con tamaño de 5px*/
+}
+
+.campo textarea{
+    height: 20rem; /*Le damos una altura de 20px al textarea*/
+}
+
+/*Footer*/
+.pie{
+    text-align: center; /**Centramos el texto del footer**/
+    /*color: var(--blanco);*/
+}
